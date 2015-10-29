@@ -1,11 +1,21 @@
-/* 
-	font-family: 'Lobster', cursive;
-	font-family: 'Josefin Sans', sans-serif;
-*/
+@media only screen and (min-width: 700px) {
+    .block {
+		width: 300px;
+		float: left;
+		position: relative;
+	}
 
-body {
-	background-color: white;
-	
+	.block .header, .block .footer {
+		box-sizing: border-box;
+		padding: 10px;
+		height: 50px;
+	}
+
+	.block .body {
+		box-sizing: border-box;
+		height: 60px;
+		padding: 10px;
+	}
 }
 
 .page-header {
