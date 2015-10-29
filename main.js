@@ -60,17 +60,13 @@ app = (function(module, $, question_list) {
 
         $answer_card.find('.header').html(question.question);
         if (question.answer == value) {
-            console.log('Correct answer.');
             $answer_card.addClass('status-correct');
             $answer_card.find('.answer')[0].innerHTML = value;
-            $answer_card.find('.footer')[0].innerHTML = "";
-            
+            $answer_card.find('.footer')[0].innerHTML = "";            
         } else {
-            console.log('Incorrect answer. Correct: ' + question.answer);
             $answer_card.addClass('status-wrong');
             $answer_card.find('.answer')[0].innerHTML = value;
             $answer_card.find('.footer')[0].innerHTML += question.answer;
-
         }
         
         $("#question-block").after($answer_card);
@@ -84,6 +80,11 @@ app = (function(module, $, question_list) {
 
         $cont.text(question.question);
         $answer_input.val('');
+        if (isNaN(question.answer)) {
+            $answer_input.removeAttr('pattern');
+        } else {
+            $answer_input.attr('pattern', '[0-9.]+');
+        }
     }
 
     function initForm(id, submitCallback) {
