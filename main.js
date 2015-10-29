@@ -157,13 +157,14 @@ var app = app || {};
 app = (function(module, $, question_list) {
     var question = null;
     var max_answer_limit = 100;
+    var SOUND_FILE_PATH = 'sound/gt/num_';
 
     function answerProcessing(value) {
         var $answer_card = $('#templates .block').clone();
 
-        $answer_card.find('.header').html(question.question);
+        $answer_card.find('.header .question-title').html(question.question);        
         if (question.answer == value) {
-            $answer_card.addClass('status-correct');
+            $answer_card.addClass('status-correct');            
             $($answer_card.find('.body i')[0]).addClass('fa-check-circle');
             $($answer_card.find('.answer')[0]).html(value);
             $($answer_card.find('.footer')[0]).html("");
@@ -174,7 +175,14 @@ app = (function(module, $, question_list) {
             $($answer_card.find('.footer')[0]).append(question.answer);
         }
 
+        if (isNaN(question.answer)) {
+            $answer_card.find('.read-number-gt').data('number-to-say', question.question);
+        } else {
+            $answer_card.find('.read-number-gt').data('number-to-say', question.answer);
+        }
+
         $("#question-block").after($answer_card);
+        initTextToSpeech();
         question = getNewQuestion(question_list);
         showQuestion();
         cleanUpOldAnswers();
@@ -193,11 +201,13 @@ app = (function(module, $, question_list) {
         var $cont = $('#question-container');
         var $answer_input = $('#answer_input');
 
-        $cont.text(question.question);
+        $($cont.find('.question-title')[0]).text(question.question);   
         $answer_input.val('');
         if (isNaN(question.answer)) {
+            $('#question-container .read-number-gt').data('number-to-say', question.question);
             $answer_input.removeAttr('pattern');
         } else {
+            $('#question-container .read-number-gt').data('number-to-say', question.answer);
             $answer_input.attr('pattern', '[0-9.]+');
         }
     }
@@ -217,6 +227,21 @@ app = (function(module, $, question_list) {
                 }
             });
         }
+    }
+
+    function initTextToSpeech() {
+        $(document).on('click', '.read-number-gt', function(event) {
+            event.preventDefault();
+            var $btn = $(this);
+            var $cont = $btn.parent();
+            var $mp3_source = $($cont.find('.speech-audio-mp3')[0]);
+            var $audio = $($cont.find('.speech-audio')[0]);
+
+            $mp3_source.attr('src', SOUND_FILE_PATH + $btn.data('number-to-say') + '.mp3' );
+
+            $audio.trigger('load');
+            $audio.trigger('play');
+        });
     }
 
     function getNewQuestion(question_list) {
@@ -242,6 +267,7 @@ app = (function(module, $, question_list) {
 
     module.init = function(formId) {
         initForm(formId, function(value){ answerProcessing(value) });
+        initTextToSpeech();
         question = getNewQuestion(question_list);
         showQuestion();
     }

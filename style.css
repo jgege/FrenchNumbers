@@ -123,3 +123,7 @@
 #templates {
 	display: none;
 }
+
+.speech-wrapper {
+	display: inline-block;
+}

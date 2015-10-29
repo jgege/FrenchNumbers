@@ -4,7 +4,7 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">	
 	<title>Practice French Numbers 1-150</title>
-	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="style.css?v=201510292020">
 	<link rel="stylesheet" href="reset.css">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 	<link href="https://fonts.googleapis.com/css?family=Lobster|Josefin+Sans" rel="stylesheet" type="text/css">
@@ -20,13 +20,19 @@
 	</script>
 </head>
 <body>
-	
 	<div class="main-wrapper" id="test">
 		<h1 class="page-header">Practice French Numbers 1&#8209;150</h1>
 		<div id="block-container" class="block-container">
 			<div id="question-block" class="block status-inprogress">
 				<div id="question-container" class="header">
-					Loading...
+					<div class="speech-wrapper">
+						<button class="read-number-gt"><i class="fa fa-commenting"></i></button>
+						<audio class="speech-audio">
+							<source class="speech-audio-mp3" src="" type="audio/mpeg">
+						</audio>
+					</div>
+
+					<span class="question-title">Loading...</span>
 				</div>
 				<div class="body">
 					<i class="fa fa-question-circle"></i>
@@ -47,7 +53,14 @@
 	<div id="templates">
 		<div class="block">
 			<div class="header">
-				{NUM}
+				<div class="speech-wrapper">
+					<button class="read-number-gt"><i class="fa fa-commenting"></i></button>
+					<audio class="speech-audio">
+						<source class="speech-audio-mp3" src="" type="audio/mpeg">
+					</audio>
+				</div>
+
+				<span class="question-title">Loading...</span>
 			</div>
 			<div class="body">
 				<i class="fa"></i>
@@ -59,6 +72,6 @@
 		</div>
 	</div>
 
-	<script src="main.js"></script>	
+	<script src="main.js?v=201510292020"></script>	
 </body>
 </html>
