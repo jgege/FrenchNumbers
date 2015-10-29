@@ -21,7 +21,7 @@ var question_list = [
     {'label_1': '20', 'label_2': 'vingt'},
     {'label_1': '21', 'label_2': 'vingt et un'},
     {'label_1': '22', 'label_2': 'vingt-deux'},
-    {'label_1': '23', 'label_2': 'vingt-trios'},
+    {'label_1': '23', 'label_2': 'vingt-trois'},
     {'label_1': '24', 'label_2': 'vingt-quatre'},
     {'label_1': '25', 'label_2': 'vingt-cinq'},
     {'label_1': '26', 'label_2': 'vingt-six'},
