@@ -1,0 +1,115 @@
+/* 
+	font-family: 'Lobster', cursive;
+	font-family: 'Josefin Sans', sans-serif;
+*/
+
+body {
+	background-color: white;
+	
+}
+
+.page-header {
+	font-size: 3em;
+	font-family: 'Lobster', cursive;
+}
+
+.main-wrapper {
+	margin: 20px;
+}
+
+.block-container {
+	margin: 5px;
+}
+
+.block {
+	margin: 0.5em;
+	border: 1px solid black;
+}
+
+.block .header {
+	color: white;
+	padding: 1em;
+	font-family: 'Josefin Sans', sans-serif;		
+}
+
+/**
+* Header
+*/
+.block.status-inprogress .header {
+	background-color: #364e59;
+}
+
+.block.status-correct .header {
+	background-color: #009100;
+}
+
+.block.status-wrong .header {
+	background-color: #b50000;
+}
+
+/**
+* Body
+*/
+
+.block .body {
+	padding: 1em;
+}
+
+.block.status-inprogress .answer-form { 
+	display: inline-block;
+}
+
+.block.status-correct .body .fa {
+	color: #009100;
+}
+
+.block.status-wrong .body .fa {
+	color: #b50000;
+}
+
+.block.status-wrong .body .answer {
+	text-decoration: line-through;
+}
+
+.block.status-inprogress .body .fa {
+	color: #364e59;
+}
+
+/**
+* Footer
+*/
+.block .footer {
+	padding: 1em;
+	min-height: 0.5em;
+	color: #ffff3e;
+}
+
+.block.status-inprogress .footer {
+	background-color: #364e59;
+}
+
+.block.status-correct .footer {
+	background-color: #009100;
+}
+
+.block.status-wrong .footer {
+	background-color: #b50000;
+}
+
+.submit-btn {
+	cursor: pointer;
+    background-color: #364e59;
+    border-color: #2e6da4;
+	margin: 0;
+    background-image: none;
+    border: 1px solid transparent;
+    border-radius: 4px;
+}
+
+.block.status-inprogress .submit-btn .fa {
+	color: white;
+}
+
+#templates {
+	display: none;
+}

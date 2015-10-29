@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">	
+	<title>Practice French Numbers</title>
+	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="reset.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+	<link href="https://fonts.googleapis.com/css?family=Lobster|Josefin+Sans" rel="stylesheet" type="text/css">
+	<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+</head>
+<body>
+	
+	<div class="main-wrapper" id="test">
+		<h1 class="page-header">Practice French Numbers</h1>
+		<div class="block-container">
+			<div id="question-block" class="block status-inprogress">
+				<div id="question-container" class="header">
+					Loading...
+				</div>
+				<div class="body">
+					<i class="fa fa-question-circle"></i>
+					<form id="answer_form" action="" class="answer-form">
+						<input id="answer_input" placeholder="Your answer" type="text" autocomplete="off">
+			            <button type="submit" class="submit-btn">
+			                <i class="fa fa-arrow-circle-right"></i>
+			            </button>
+					</form>
+				</div>
+				<div class="footer">
+					
+				</div>
+			</div>
+<!--
+			<div class="block status-correct">
+				<div class="header">
+					cent quatre-vingt-quatorze 
+				</div>
+				<div class="body">
+					<i class="fa fa-check-circle"></i>
+					<span class="answer">45</span>
+				</div>
+				<div class="footer">
+					
+				</div>
+			</div>
+
+			<div class="block status-wrong">
+				<div class="header">
+					cent quatre-vingt-quatorze 
+				</div>
+				<div class="body">
+					<i class="fa fa-minus-circle"></i>
+					<span class="answer">45</span>
+				</div>
+				<div class="footer">
+					<i class="fa fa-info-circle"></i>
+					72
+				</div>
+			</div>
+		</div>
+	</div>
+-->
+
+	<div id="templates">
+		<div class="block">
+			<div class="header">
+				{NUM}
+			</div>
+			<div class="body">
+				<i class="fa fa-question-circle"></i>
+				<span class="answer">45</span>
+			</div>
+			<div class="footer">
+				<i class="fa fa-info-circle"></i>
+			</div>
+		</div>
+	</div>
+
+	<script src="main.js"></script>	
+</body>
+</html>
