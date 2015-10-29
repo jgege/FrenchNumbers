@@ -156,6 +156,7 @@ var question_list = [
 var app = app || {};
 app = (function(module, $, question_list) {
     var question = null;
+    var max_answer_limit = 100;
 
     function answerProcessing(value) {
         var $answer_card = $('#templates .block').clone();
@@ -163,17 +164,29 @@ app = (function(module, $, question_list) {
         $answer_card.find('.header').html(question.question);
         if (question.answer == value) {
             $answer_card.addClass('status-correct');
-            $answer_card.find('.answer')[0].innerHTML = value;
-            $answer_card.find('.footer')[0].innerHTML = "";            
+            $($answer_card.find('.body i')[0]).addClass('fa-check-circle');
+            $($answer_card.find('.answer')[0]).html(value);
+            $($answer_card.find('.footer')[0]).html("");
         } else {
             $answer_card.addClass('status-wrong');
-            $answer_card.find('.answer')[0].innerHTML = value;
-            $answer_card.find('.footer')[0].innerHTML += question.answer;
+            $($answer_card.find('.body i')[0]).addClass('fa-minus-circle');
+            $($answer_card.find('.answer')[0]).html(value);
+            $($answer_card.find('.footer')[0]).append(question.answer);
         }
-        
+
         $("#question-block").after($answer_card);
         question = getNewQuestion(question_list);
         showQuestion();
+        cleanUpOldAnswers();
+    }
+
+    function cleanUpOldAnswers() {
+        var $cont = $('#block-container');
+        var node_count = $cont.children().length;
+
+        if (node_count > max_answer_limit) {
+            $cont.children(':last').remove();
+        }
     }
 
     function showQuestion() {
