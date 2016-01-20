@@ -154,7 +154,7 @@ var question_list = [
 ];
 
 var app = app || {};
-app = (function(module, $, question_list) {
+app = (function(module, $, question_list, ga) {
     var question = null;
     var max_answer_limit = 100;
     var SOUND_FILE_PATH = 'sound/gt/num_';
@@ -168,11 +168,13 @@ app = (function(module, $, question_list) {
             $($answer_card.find('.body i')[0]).addClass('fa-check-circle');
             $($answer_card.find('.answer')[0]).html(value);
             $($answer_card.find('.footer')[0]).html("");
+            ga('send', 'event', 'Answer', 'right', 'General');
         } else {
             $answer_card.addClass('status-wrong');
             $($answer_card.find('.body i')[0]).addClass('fa-minus-circle');
             $($answer_card.find('.answer')[0]).html(value);
             $($answer_card.find('.footer')[0]).append(question.answer);
+            ga('send', 'event', 'Answer', 'wrong', 'General');
         }
 
         if (isNaN(question.answer)) {
@@ -259,6 +261,7 @@ app = (function(module, $, question_list) {
                 'answer' : question_list[choosen_id].label_1
             };
         }
+        
         return {
             'question' : question_list[choosen_id].label_1,
             'answer' : question_list[choosen_id].label_2
@@ -273,6 +276,6 @@ app = (function(module, $, question_list) {
     }
 
     return module;
-}(app, jQuery, question_list));
+}(app, jQuery, question_list, ga));
 
 app.init('answer_form');
