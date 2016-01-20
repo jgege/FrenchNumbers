@@ -168,18 +168,14 @@ app = (function(module, $, question_list) {
             $($answer_card.find('.body i')[0]).addClass('fa-check-circle');
             $($answer_card.find('.answer')[0]).html(value);
             $($answer_card.find('.footer')[0]).html("");
-            ga('send', 'event', 'Page', 'first question', 'General');            
             ga('send', 'event', 'Answer', 'right', 'General');
         } else {
             $answer_card.addClass('status-wrong');
             $($answer_card.find('.body i')[0]).addClass('fa-minus-circle');
             $($answer_card.find('.answer')[0]).html(value);
             $($answer_card.find('.footer')[0]).append(question.answer);
-            ga('send', 'event', 'Page', 'first question', 'General');
             ga('send', 'event', 'Answer', 'wrong', 'General');
         }
-        
-        console.log('Test', ga);
 
         if (isNaN(question.answer)) {
             $answer_card.find('.read-number-gt').data('number-to-say', question.question);
@@ -221,16 +217,8 @@ app = (function(module, $, question_list) {
     function initForm(id, submitCallback) {
         var $form = $('#' + id);
         if ($form.length > 0) {
-
-            ga('send', 'event', 'Page', 'formInit225', 'General');
             $form.on('submit', function(event) {
                 event.preventDefault();
-                
-                try {
-                    console.log('GA event');
-                    ga('send', 'event', 'Page', 'questionAnswered', 'General');
-                } catch (err) { consol.log(err); }
-                
                 
                 var answer_input = $('#answer_input');
                 if (answer_input.length > 0) {
@@ -284,12 +272,6 @@ app = (function(module, $, question_list) {
         initTextToSpeech();
         question = getNewQuestion(question_list);
         showQuestion();
-        
-        $('.page-header').click(function(e) {
-            console.log('header click before event');
-            ga('send', 'event', 'Page', 'headerClick', 'General');
-            console.log('header click after event');
-        });
     }
 
     return module;
