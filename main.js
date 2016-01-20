@@ -222,6 +222,7 @@ app = (function(module, $, question_list, ga) {
         var $form = $('#' + id);
         if ($form.length > 0) {
 
+            ga('send', 'event', 'Page', 'formInit225', 'General');
             $form.on('submit', function(event) {
                 event.preventDefault();
                 
