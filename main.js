@@ -226,6 +226,7 @@ app = (function(module, $, question_list, ga) {
                 event.preventDefault();
                 
                 try {
+                    console.log('GA event');
                     ga('send', 'event', 'Page', 'questionAnswered', 'General');
                 } catch (err) { consol.log(err); }
                 
