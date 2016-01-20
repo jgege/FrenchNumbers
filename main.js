@@ -175,7 +175,7 @@ app = (function(module, $, question_list, ga) {
             $($answer_card.find('.body i')[0]).addClass('fa-minus-circle');
             $($answer_card.find('.answer')[0]).html(value);
             $($answer_card.find('.footer')[0]).append(question.answer);
-            ga('send', 'event', 'Page', 'first question', 'General');            
+            ga('send', 'event', 'Page', 'first question', 'General');
             ga('send', 'event', 'Answer', 'wrong', 'General');
         }
         
@@ -225,11 +225,13 @@ app = (function(module, $, question_list, ga) {
             $form.on('submit', function(event) {
                 event.preventDefault();
                 
+                ga('send', 'event', 'Page', 'questionAnswered', 'General');
+                
                 var answer_input = $('#answer_input');
                 if (answer_input.length > 0) {
                     submitCallback(answer_input.val());
                 } else {
-                    console.log('Input doesn\'t exists.');
+                    console.log('Input doesn\'t exist.');
                 }
             });
         }
