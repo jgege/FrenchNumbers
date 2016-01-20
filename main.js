@@ -284,7 +284,9 @@ app = (function(module, $, question_list, ga) {
         initTextToSpeech();
         question = getNewQuestion(question_list);
         showQuestion();
-        ga('send', 'event', 'Page', 'first question', 'General');
+        $('.page-header').click(function(e) {
+            ga('send', 'event', 'Page', 'headerClick', 'General');
+        });
     }
 
     return module;
