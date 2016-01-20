@@ -176,6 +176,8 @@ app = (function(module, $, question_list, ga) {
             $($answer_card.find('.footer')[0]).append(question.answer);
             ga('send', 'event', 'Answer', 'wrong', 'General');
         }
+        
+        console.log('Test', ga);
 
         if (isNaN(question.answer)) {
             $answer_card.find('.read-number-gt').data('number-to-say', question.question);
