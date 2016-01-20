@@ -225,7 +225,10 @@ app = (function(module, $, question_list, ga) {
             $form.on('submit', function(event) {
                 event.preventDefault();
                 
-                ga('send', 'event', 'Page', 'questionAnswered', 'General');
+                try {
+                    ga('send', 'event', 'Page', 'questionAnswered', 'General');
+                } catch (err) { consol.log(err); }
+                
                 
                 var answer_input = $('#answer_input');
                 if (answer_input.length > 0) {
