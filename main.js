@@ -269,6 +269,7 @@ app = (function(module, $, question_list, ga) {
     }
 
     module.init = function(formId) {
+        ga('send', 'event', 'Page', 'init', 'General');
         initForm(formId, function(value){ answerProcessing(value) });
         initTextToSpeech();
         question = getNewQuestion(question_list);
@@ -279,5 +280,3 @@ app = (function(module, $, question_list, ga) {
 }(app, jQuery, question_list, ga));
 
 app.init('answer_form');
-
-ga('send', 'event', 'Page', 'refresh', 'General');
