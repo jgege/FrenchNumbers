@@ -285,6 +285,7 @@ app = (function(module, $, question_list, ga) {
         question = getNewQuestion(question_list);
         showQuestion();
         $('.page-header').click(function(e) {
+            console.log('header');
             ga('send', 'event', 'Page', 'headerClick', 'General');
         });
     }
