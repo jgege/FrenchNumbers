@@ -154,7 +154,7 @@ var question_list = [
 ];
 
 var app = app || {};
-app = (function(module, $, question_list, ga) {
+app = (function(module, $, question_list) {
     var question = null;
     var max_answer_limit = 100;
     var SOUND_FILE_PATH = 'sound/gt/num_';
@@ -293,6 +293,6 @@ app = (function(module, $, question_list, ga) {
     }
 
     return module;
-}(app, jQuery, question_list, ga));
+}(app, jQuery, question_list));
 
 app.init('answer_form');
