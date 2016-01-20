@@ -269,11 +269,11 @@ app = (function(module, $, question_list, ga) {
     }
 
     module.init = function(formId) {
-        ga('send', 'event', 'Page', 'init', 'General');
         initForm(formId, function(value){ answerProcessing(value) });
         initTextToSpeech();
         question = getNewQuestion(question_list);
         showQuestion();
+        ga('send', 'event', 'Page', 'first question', 'General');
     }
 
     return module;
