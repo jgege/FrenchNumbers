@@ -284,13 +284,15 @@ app = (function(module, $, question_list, ga) {
         initTextToSpeech();
         question = getNewQuestion(question_list);
         showQuestion();
-        $('.page-header').click(function(e) {
-            console.log('header');
-            ga('send', 'event', 'Page', 'headerClick', 'General');
-        });
     }
 
     return module;
 }(app, jQuery, question_list, ga));
 
 app.init('answer_form');
+
+$('.page-header').click(function(e) {
+    console.log('header click before event');
+    ga('send', 'event', 'Page', 'headerClick', 'General');
+    console.log('header click after event');
+});
