@@ -279,3 +279,5 @@ app = (function(module, $, question_list, ga) {
 }(app, jQuery, question_list, ga));
 
 app.init('answer_form');
+
+ga('send', 'event', 'Page', 'refresh', 'General');
